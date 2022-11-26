@@ -1,6 +1,6 @@
 package logistica.controlador;
 
-import seguridad.controlador.*;
+import java.util.logging.Logger;
 
 /*
 actualización 0209 Juan Miguel Sandoval Chile ESTA ES LA ************************
@@ -14,6 +14,18 @@ public class clsProductos {
     private int lincodigo;
      private String marnombre;
     private String linnombre;
+
+    public clsProductos(int prodcodigo, String prodnombre, float prodexistencia, String prodestatus, int marcodigo, int lincodigo, String marnombre, String linnombre) {
+        this.prodcodigo = prodcodigo;
+        this.prodnombre = prodnombre;
+        this.prodexistencia = prodexistencia;
+        this.prodestatus = prodestatus;
+        this.marcodigo = marcodigo;
+        this.lincodigo = lincodigo;
+        this.marnombre = marnombre;
+        this.linnombre = linnombre;
+    }
+    private static final Logger LOG = Logger.getLogger(clsProductos.class.getName());
   
 
     public clsProductos() {

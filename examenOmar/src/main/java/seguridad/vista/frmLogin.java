@@ -16,7 +16,7 @@ import prototipos.vista.mdiPrototipo;
 
 import compras.vista.mdiCompras;
 import ventas.vista.mdiVentas;
-import traslados.vista.mdiTraslados;
+import traslados.vista.mdiTraslado;
 import seguridad.controlador.clsSeguridad;
 import seguridad.controlador.clsUsuarioConectado;
 import seguridad.modelo.daoAcceso;
@@ -205,7 +205,7 @@ public class frmLogin extends javax.swing.JFrame {
                         break;     
                         case "Area Traslados":
                         try {
-                            mdiTraslados menuTraslados = new mdiTraslados();
+                            mdiTraslado menuTraslados = new mdiTraslado();
                             menuTraslados.setVisible(true);
                             this.dispose();
                         } catch (Exception e) {

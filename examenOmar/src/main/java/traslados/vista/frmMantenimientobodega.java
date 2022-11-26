@@ -23,9 +23,14 @@ public class frmMantenimientobodega extends javax.swing.JInternalFrame {
      
     public void llenadoDeTablas() {
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("ID Concepto");
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Estado");
+        modelo.addColumn("ID Bodega");
+        modelo.addColumn("Nombre Bodega");
+        modelo.addColumn("Direccion Bodega");
+        modelo.addColumn("Tipo bodega");
+        modelo.addColumn("Estatus bodega");
+        modelo.addColumn("Id Empresa");
+        
+        
         daoBodega cDAO = new daoBodega();
         List<clsBodega> c = cDAO.select();
         tablaLineas.setModel(modelo);
@@ -36,7 +41,6 @@ public class frmMantenimientobodega extends javax.swing.JInternalFrame {
             dato[2] = c.get(i).getDireccion_bodega();
             dato[3] = c.get(i).getTipo_bodega();
             dato[4] = c.get(i).getEstatus_bodega();
-
             dato[5] = Integer.toString(c.get(i).getId_empresa());
             //System.out.println("vendedor:" + vendedores);
             modelo.addRow(dato);
@@ -101,6 +105,7 @@ public class frmMantenimientobodega extends javax.swing.JInternalFrame {
         lb2.setForeground(new java.awt.Color(204, 204, 204));
         lb2.setText(".");
 
+        setBackground(new java.awt.Color(204, 204, 204));
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
@@ -150,10 +155,12 @@ public class frmMantenimientobodega extends javax.swing.JInternalFrame {
         getContentPane().add(label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
         getContentPane().add(txtbuscado, new org.netbeans.lib.awtextra.AbsoluteConstraints(249, 375, 102, -1));
 
+        txtempresa.setBackground(new java.awt.Color(204, 255, 255));
         txtempresa.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtempresa.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
+        txtempresa.setDisabledTextColor(new java.awt.Color(255, 204, 204));
         txtempresa.setOpaque(false);
-        getContentPane().add(txtempresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 110, -1));
+        getContentPane().add(txtempresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 110, -1));
 
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -169,20 +176,12 @@ public class frmMantenimientobodega extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "ID Bodega", "Nombre", "Estado"
+                "ID Bodega", "Nombre Bodega", "Direccion", "Tipo", "Estatus", "Id Empresa"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, true
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         jScrollPane1.setViewportView(tablaLineas);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(395, 96, 633, 303));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 30, 550, 220));
 
         cbox_lineas.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         cbox_lineas.addActionListener(new java.awt.event.ActionListener() {
@@ -212,46 +211,56 @@ public class frmMantenimientobodega extends javax.swing.JInternalFrame {
         label6.setText("Id Bodega");
         getContentPane().add(label6, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 43, -1, -1));
 
+        txtid.setBackground(new java.awt.Color(204, 255, 255));
         txtid.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtid.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         txtid.setOpaque(false);
-        getContentPane().add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 43, 110, -1));
+        getContentPane().add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 110, -1));
 
         label7.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         label7.setText("Nombre");
         getContentPane().add(label7, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 73, -1, -1));
 
+        txtNombre1.setBackground(new java.awt.Color(204, 255, 255));
         txtNombre1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtNombre1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         txtNombre1.setOpaque(false);
-        getContentPane().add(txtNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 110, 20));
+        getContentPane().add(txtNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 110, 20));
 
         label8.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         label8.setText("Direccion");
         getContentPane().add(label8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
+        txtdireccion1.setBackground(new java.awt.Color(204, 255, 255));
         txtdireccion1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtdireccion1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         txtdireccion1.setOpaque(false);
-        getContentPane().add(txtdireccion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 110, -1));
+        getContentPane().add(txtdireccion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 110, -1));
 
         label9.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         label9.setText("Tipo Bodega");
         getContentPane().add(label9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
 
+        txtbodega1.setBackground(new java.awt.Color(204, 255, 255));
         txtbodega1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtbodega1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         txtbodega1.setOpaque(false);
-        getContentPane().add(txtbodega1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 110, -1));
+        txtbodega1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtbodega1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtbodega1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 147, 110, 20));
 
         label10.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         label10.setText("Estatus");
         getContentPane().add(label10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
 
+        txtestatus1.setBackground(new java.awt.Color(204, 255, 255));
         txtestatus1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtestatus1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         txtestatus1.setOpaque(false);
-        getContentPane().add(txtestatus1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 110, -1));
+        getContentPane().add(txtestatus1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 110, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -270,18 +279,14 @@ public class frmMantenimientobodega extends javax.swing.JInternalFrame {
         daoBodega cDAO = new daoBodega();
         clsBodega cAInsertar = new clsBodega();
             
-         cAInsertar.setId_bodega(Integer.parseInt(txtid.getText()));
+        cAInsertar.setId_bodega(Integer.parseInt(txtid.getText()));
         cAInsertar.setNombre_bodega(txtNombre1.getText());
         cAInsertar.setDireccion_bodega(txtdireccion1.getText());
         cAInsertar.setTipo_bodega(txtbodega1.getText());
         cAInsertar.setEstatus_bodega(txtestatus1.getText());
-        
-         cAInsertar.setId_empresa(Integer.parseInt(txtempresa.getText()));
-        
- 
-        cDAO.insert(cAInsertar);
-        
-        
+        cAInsertar.setId_empresa(Integer.parseInt(txtempresa.getText()));
+         
+        cDAO.insert(cAInsertar);     
         
         llenadoDeTablas();
     }//GEN-LAST:event_btnRegistrarActionPerformed
@@ -295,14 +300,31 @@ public class frmMantenimientobodega extends javax.swing.JInternalFrame {
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
 //        // TODO add your handling code here:
+       daoBodega cDAO = new daoBodega();
+       clsBodega cAActualizar = new clsBodega();
+        cAActualizar.setId_bodega(Integer.parseInt(txtid.getText()));
+        cAActualizar.setNombre_bodega(txtNombre1.getText());
+        cAActualizar.setDireccion_bodega(txtdireccion1.getText());
+        cAActualizar.setTipo_bodega(txtbodega1.getText());
+        cAActualizar.setEstatus_bodega(txtestatus1.getText());
+        cAActualizar.setId_empresa(Integer.parseInt(txtempresa.getText()));
+         
+        cDAO.insert(cAActualizar);     
+        
+        llenadoDeTablas();
+       
        
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-        cbox_lineas.setSelectedIndex(0);
+        txtid.setText("");
+        txtNombre1.setText("");
+        txtdireccion1.setText("");
+        txtbodega1.setText("");
+        txtestatus1.setText("");
         txtempresa.setText("");
-        txtbuscado.setText("");
- 
+        txtbuscado.setText("");     
+        btnRegistrar.setEnabled(true);
         btnModificar.setEnabled(true);
         btnEliminar.setEnabled(true);
 
@@ -330,6 +352,10 @@ public class frmMantenimientobodega extends javax.swing.JInternalFrame {
             ex.printStackTrace();
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void txtbodega1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbodega1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtbodega1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

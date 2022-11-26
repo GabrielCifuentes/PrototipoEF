@@ -110,13 +110,13 @@ public class daoProductos {
             conn = clsConexion.getConnection();
             System.out.println("ejecutando query: " + SQL_UPDATE);
             stmt = conn.prepareStatement(SQL_UPDATE);
-        
-            stmt.setString(1, perfil.getProdnombre());
-            stmt.setFloat(2, perfil.getProdexistencia());
-             stmt.setString(3, perfil.getProdestatus());
-               stmt.setInt(4, perfil.getMarcodigo());
-                stmt.setInt(5, perfil.getLincodigo());
-               stmt.setInt(6, perfil.getProdcodigo());
+             stmt.setInt(1, perfil.getProdcodigo());
+            stmt.setString(2, perfil.getProdnombre());
+            stmt.setFloat(3, perfil.getProdexistencia());
+             stmt.setString(4, perfil.getProdestatus());
+               stmt.setInt(5, perfil.getMarcodigo());
+                stmt.setInt(6, perfil.getLincodigo());
+               stmt.setInt(7, perfil.getProdcodigo());
 
             rows = stmt.executeUpdate();
             System.out.println("Registros actualizado:" + rows);

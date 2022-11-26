@@ -368,7 +368,14 @@ public class frmMantenimientoProductos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-          
+        
+        txtNombre.setText("");
+        txtExistencia.setText("");
+        txtEstatus.setText("");
+        txtMarca.setText("");
+        txtLinea.setText("");
+              
+        
         txtbuscado.setText("");
         btnRegistrar.setEnabled(true);
         btnModificar.setEnabled(true);
