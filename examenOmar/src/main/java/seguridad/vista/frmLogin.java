@@ -9,13 +9,14 @@ package seguridad.vista;
 
 import seguridad.controlador.clsUsuario;
 import java.awt.HeadlessException;
-import ventas.vista.mdiVentas;
+
 import javax.swing.JOptionPane;
-import javax.swing.UIManager;
+
 import prototipos.vista.mdiPrototipo;
-import logistica.vista.mdiLogistica;
+
 import compras.vista.mdiCompras;
 import ventas.vista.mdiVentas;
+import traslados.vista.mdiTraslados;
 import seguridad.controlador.clsSeguridad;
 import seguridad.controlador.clsUsuarioConectado;
 import seguridad.modelo.daoAcceso;
@@ -88,7 +89,7 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
 
-        cbxAreas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione:", "Area Seguridad", "Area Logistica", "Area Compras", "Area Ventas", "Area RRHH", "Prototipo" }));
+        cbxAreas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione:", "Area Seguridad", "Area Traslados", "Area Compras", "Area Ventas", "Area RRHH", "Prototipo" }));
         cbxAreas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxAreasActionPerformed(evt);
@@ -202,10 +203,10 @@ public class frmLogin extends javax.swing.JFrame {
                             System.out.println(e);
                         }
                         break;     
-                        case "Area Logistica":
+                        case "Area Traslados":
                         try {
-                            mdiLogistica menuLogistica = new mdiLogistica();
-                            menuLogistica.setVisible(true);
+                            mdiTraslados menuTraslados = new mdiTraslados();
+                            menuTraslados.setVisible(true);
                             this.dispose();
                         } catch (Exception e) {
                             System.out.println(e);
