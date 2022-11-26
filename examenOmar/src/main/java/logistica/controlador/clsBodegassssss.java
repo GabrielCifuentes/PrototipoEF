@@ -17,19 +17,19 @@ package logistica.controlador;
     private String pernombre;
     private String perestatus; 
 */
-public class clsBodega {
+public class clsBodegassssss {
     int bodcodigo;
     String bodnombre;
     String bodestatus;
 
-    public clsBodega() {
+    public clsBodegassssss() {
     }
 
-    public clsBodega(int codigo) {
+    public clsBodegassssss(int codigo) {
         this.bodcodigo= codigo;
     }
 
-    public clsBodega(String nombre, String estado) {
+    public clsBodegassssss(String nombre, String estado) {
         this.bodnombre = nombre;
         this.bodestatus = estado;
     }

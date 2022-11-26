@@ -6,7 +6,7 @@
 package logistica.modelo;
 
 import seguridad.modelo.clsConexion;
-import logistica.controlador.clsBodega;
+import logistica.controlador.clsBodegassssss;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,12 +26,12 @@ public class daoBodega {
     private static final String SQL_DELETE = "DELETE FROM tbl_bodegas WHERE bodcodigo=?";
     private static final String SQL_QUERY = "SELECT bodcodigo, bodnombre, bodestatus FROM tbl_bodegas WHERE bodcodigo = ?";
 
-    public List<clsBodega> select() {
+    public List<clsBodegassssss> select() {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        clsBodega bodega = null;
-        List<clsBodega> bodegas = new ArrayList<clsBodega>();
+        clsBodegassssss bodega = null;
+        List<clsBodegassssss> bodegas = new ArrayList<clsBodegassssss>();
 
         try {
             conn = clsConexion.getConnection();
@@ -42,7 +42,7 @@ public class daoBodega {
                 String nombre = rs.getString("bodnombre");
                 String estado = rs.getString("bodestatus");
                 
-                bodega = new clsBodega();
+                bodega = new clsBodegassssss();
                 bodega.setcodigob(codigo);
                 bodega.setNombreb(nombre);
                 bodega.setestadob(estado);
@@ -61,7 +61,7 @@ public class daoBodega {
         return bodegas;
     }
 
-    public int insert(clsBodega bodega) {
+    public int insert(clsBodegassssss bodega) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -85,7 +85,7 @@ public class daoBodega {
         return rows;
     }
 
-    public int update(clsBodega bodega) {
+    public int update(clsBodegassssss bodega) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -111,7 +111,7 @@ public class daoBodega {
         return rows;
     }
 
-    public int delete(clsBodega bodega) {
+    public int delete(clsBodegassssss bodega) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -134,11 +134,11 @@ public class daoBodega {
     }
 
 //    public List<Persona> query(Persona vendedor) { // Si se utiliza un ArrayList
-    public clsBodega query(clsBodega bodega) {    
+    public clsBodegassssss query(clsBodegassssss bodega) {    
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        List<clsBodega> bodegas = new ArrayList<clsBodega>();
+        List<clsBodegassssss> bodegas = new ArrayList<clsBodegassssss>();
         int rows = 0;
 
         try {
@@ -152,7 +152,7 @@ public class daoBodega {
                 String nombre = rs.getString("bodnombre");
                 String estado = rs.getString("bodestatus");
                 
-                bodega = new clsBodega();
+                bodega = new clsBodegassssss();
                 bodega.setcodigob(codigo);
                 bodega.setNombreb(nombre);
                 bodega.setestadob(estado);

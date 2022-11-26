@@ -33,13 +33,9 @@ public class clsBodega {
         this.estatus_bodega = estatus_bodega;
         this.id_empresa = id_empresa;
     }
-    private static final Logger LOG = Logger.getLogger(clsBodega.class.getName());
+    public clsBodega(){}
 
-    public clsBodega() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public int getId_bodega() {
+        public int getId_bodega() {
         return id_bodega;
     }
 

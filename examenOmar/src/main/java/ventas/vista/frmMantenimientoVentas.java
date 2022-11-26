@@ -15,7 +15,7 @@ import ventas.controlador.clsVendedores;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
-import logistica.controlador.clsBodega;
+import logistica.controlador.clsBodegassssss;
 import logistica.controlador.clsProductos;
 import logistica.modelo.daoBodega;
 import logistica.modelo.daoProductos;
@@ -61,7 +61,7 @@ public class frmMantenimientoVentas extends javax.swing.JInternalFrame {
         
         public void ComboBodega() {
         daoBodega VentasDAO = new daoBodega();
-        List<clsBodega> ventas = VentasDAO.select();
+        List<clsBodegassssss> ventas = VentasDAO.select();
         cbox_bodcodigo.addItem("Seleccione una Bodega");
         //cbox_clicodigo.removeAllItems();
         for (int i = 0; i < ventas.size(); i++) {

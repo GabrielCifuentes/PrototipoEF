@@ -24,7 +24,7 @@ public class daoBodega {
     private static final String SQL_INSERT = "INSERT INTO tbl_bodega(nombre_bodega, direccion_bodega,tipo_bodega, estatus_bodega, id_empresa ) VALUES(?, ?, ? ,? ,?)";
     private static final String SQL_UPDATE = "UPDATE tbl_bodega SET nombre_bodega=?, direccion_bodega=?, tipo_bodega=?, estatus_bodega=? , id_empresa=? WHERE id_bodega = ?";
     private static final String SQL_DELETE = "DELETE FROM tbl_bodega WHERE id_bodega=?";
-    private static final String SQL_QUERY = "SELECT id_bodega, nombre_bodega, direccion_bodega, tipo_bodega,estatus_bodega, id_empresa  FROM tbl_bodegas WHERE id_bodega = ?";
+    private static final String SQL_QUERY = "SELECT id_bodega, nombre_bodega, direccion_bodega, tipo_bodega,estatus_bodega, id_empresa  FROM tbl_bodega WHERE id_bodega = ?";
 
     public List<clsBodega> select() {
         Connection conn = null;
@@ -74,6 +74,7 @@ public class daoBodega {
         try {
             conn = clsConexion.getConnection();
             stmt = conn.prepareStatement(SQL_INSERT);
+            
             stmt.setString(1, bodega.getNombre_bodega());
             stmt.setString(2, bodega.getDireccion_bodega());
             stmt.setString(3, bodega.getTipo_bodega());
@@ -104,7 +105,7 @@ public class daoBodega {
             System.out.println("ejecutando query: " + SQL_UPDATE);
             stmt = conn.prepareStatement(SQL_UPDATE);
                       
-            stmt.setString(1, bodega.getNombre_bodega());
+                        stmt.setString(1, bodega.getNombre_bodega());
             stmt.setString(2, bodega.getDireccion_bodega());
             stmt.setString(3, bodega.getTipo_bodega());
             stmt.setString(4, bodega.getEstatus_bodega());

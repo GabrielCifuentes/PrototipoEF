@@ -8,7 +8,7 @@ package logistica.vista;
 
 
 import logistica.modelo.daoBodega;
-import logistica.controlador.clsBodega;
+import logistica.controlador.clsBodegassssss;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
@@ -23,7 +23,7 @@ public class frmMantenimientoBodega extends javax.swing.JInternalFrame {
     
     public void llenadoDeCombos() {
         daoBodega cDAO = new daoBodega();
-        List<clsBodega> c = cDAO.select();
+        List<clsBodegassssss> c = cDAO.select();
         cbox_lineas.addItem("Seleccione una opción");
         for (int i = 0; i < c.size(); i++) {
             cbox_lineas.addItem(c.get(i).getNombreb());
@@ -43,7 +43,7 @@ public class frmMantenimientoBodega extends javax.swing.JInternalFrame {
         modelo.addColumn("Nombre");
         modelo.addColumn("Estado");
         daoBodega cDAO = new daoBodega();
-        List<clsBodega> c = cDAO.select();
+        List<clsBodegassssss> c = cDAO.select();
         tablaLineas.setModel(modelo);
         String[] dato = new String[3];
         for (int i = 0; i < c.size(); i++) {
@@ -56,7 +56,7 @@ public class frmMantenimientoBodega extends javax.swing.JInternalFrame {
     }
 
     public void buscaraplicacion() {
-        clsBodega cAConsultar = new clsBodega();
+        clsBodegassssss cAConsultar = new clsBodegassssss();
         daoBodega cDAO = new daoBodega();
         cAConsultar.setcodigob(Integer.parseInt(txtbuscado.getText()));
         cAConsultar = cDAO.query(cAConsultar);
@@ -297,7 +297,7 @@ public class frmMantenimientoBodega extends javax.swing.JInternalFrame {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
         daoBodega cDAO = new daoBodega();
-        clsBodega cAEliminar = new clsBodega();
+        clsBodegassssss cAEliminar = new clsBodegassssss();
         cAEliminar.setcodigob(Integer.parseInt(txtbuscado.getText()));
         cDAO.delete(cAEliminar);
        
@@ -306,7 +306,7 @@ public class frmMantenimientoBodega extends javax.swing.JInternalFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         daoBodega cDAO = new daoBodega();
-        clsBodega cAInsertar = new clsBodega();
+        clsBodegassssss cAInsertar = new clsBodegassssss();
         cAInsertar.setNombreb(txtNombre.getText());
         cAInsertar.setestadob(cbox_estado.getSelectedItem().toString());
         cDAO.insert(cAInsertar);
@@ -326,7 +326,7 @@ public class frmMantenimientoBodega extends javax.swing.JInternalFrame {
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
 //        // TODO add your handling code here:
         daoBodega cDAO = new daoBodega();
-        clsBodega cAActualizar = new clsBodega();
+        clsBodegassssss cAActualizar = new clsBodegassssss();
         cAActualizar.setcodigob(Integer.parseInt(txtbuscado.getText()));
         cAActualizar.setNombreb(txtNombre.getText());
         cAActualizar.setestadob(cbox_estado.getSelectedItem().toString());
